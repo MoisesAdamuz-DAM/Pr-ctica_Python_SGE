@@ -17,7 +17,11 @@ def estadisticas(nombre):
                 nombre[i] = int(nombre[i]) 
     print("Media: " + str(statistics.mean(nombre)))
     #Evitamos usar ".mode(data)" por si hay duplicidad de números, lo que provoca errores
-    print("Moda: " + str(Counter(nombre).most_common()[0][0]))
+    for i in range(100):
+        if str(Counter(nombre).most_common()[i]).replace("(", "").replace(")", "").split(", ")[1] == str(Counter(nombre).most_common()[0]).replace("(", "").replace(")", "").split(", ")[1]:
+            print("Moda: " + str(Counter(nombre).most_common()[i]).replace("(", "").replace(")", "").split(", ")[0] 
+                  + " - " + str(Counter(nombre).most_common()[i]).replace("(", "").replace(")", "").split(", ")[1] + " veces.")
+            
     print("Mediana: " + str(statistics.median(nombre)))
     print("Máximo: " + str(max(nombre)))
     print("Mínimo: " + str(min(nombre)))
